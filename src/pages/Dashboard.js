@@ -1,6 +1,7 @@
 import { navigate } from '@reach/router';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import NavBar from '../components/NavBar';
 import { auth, db } from '../firebase-config';
 
 export default function Dashboard() {
@@ -29,6 +30,23 @@ export default function Dashboard() {
         
     }, [setUserInfo]);
 
+    const id = JSON.stringify(user.uid)
+
+    console.log(id); //Outputs: Tabs1
+
+    function createOrder() {
+    
+
+        return db.collection('users').doc().set({
+                
+
+            }).then(() =>{
+
+                navigate("/dashboard")
+            })
+
+    }
+
 
     function signOut(e) {
         e.preventDefault();
@@ -42,6 +60,7 @@ export default function Dashboard() {
 
   return (
     <>
+    <NavBar />
 
      <h1 style={{textAlign: "center"}}> Her er dit Dashboard </h1>
         <div style={{textAlign: "center"}}>
