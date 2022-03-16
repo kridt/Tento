@@ -93,10 +93,10 @@ export default function Startside() {
   <Carousel className="productGallary">
 
     <div>
-      <img src="http://via.placeholder.com/336x252" />
+      <img alt="placeholder" src="http://via.placeholder.com/336x252" />
     </div>
 
-      {/* {productGallary.map((product) => {
+      {productGallary.map((product) => {
         
         return (
         
@@ -105,7 +105,7 @@ export default function Startside() {
         
         
         )
-      })} */}
+      })}
       
       </Carousel>
       

@@ -9,6 +9,7 @@ export default function UserInfo() {
     const [allUserData, setAllUserData] = useState({})
     const [orders, setOrders] = useState([])
     
+    console.log(userInfo, allUserData, orders);
     
     useEffect(()=>{
         
