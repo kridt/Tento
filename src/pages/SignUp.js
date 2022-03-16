@@ -17,6 +17,7 @@ export default function SignUp() {
         auth.createUserWithEmailAndPassword(email, password).then(cred => {
             return db.collection('users').doc(cred.user.uid).set({
                 age: age,
+                orders: []
 
             }).then(() =>{
 

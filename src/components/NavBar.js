@@ -1,7 +1,7 @@
-import { navigate } from '@reach/router'
 import { Link } from '@reach/router'
 import React, { useState } from 'react'
 import { auth } from '../firebase-config'
+import "./NavBar.css"
 
 export default function NavBar() {
     const [userState, setUserState] = useState(false)
@@ -26,12 +26,22 @@ export default function NavBar() {
      
 
   return (
-    <nav>
-      
+    <nav id='navbar'>
+      <ul>
+        <li>
+          <Link id='logo' to={`/`}>Tento</Link>
+        </li>
+      </ul>
         <ul>
-            <li><Link to='/'>Home</Link></li>
-            <li>{userState ? <Link onClick={() => signOut()} to='/'>Log Out</Link> : <Link to="/login">Log in</Link>}</li>
-            {userState ? null : <li>hej</li>}
+            <li><Link to='/'>Alle smykker</Link></li>
+            <li>{userState ? 
+            <>
+            <Link onClick={() => signOut()} to='/'>Log Out</Link>
+            <Link to="/dashboard">Dashboard</Link> 
+            </>
+            : 
+            <Link to="/login">Log in</Link>}</li>
+            
         </ul>
     </nav>
   )

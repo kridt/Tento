@@ -1,0 +1,107 @@
+.bigPicTop{
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+}
+
+img{
+    width: 100%;
+}
+.bigPicTop div img{
+    height: 560px;
+}
+
+.img{
+    width: 100%;
+}
+
+.bigPicTopImg{
+    grid-area: 1/1/1/1;
+}
+
+.bigPicTop_text{
+    color: #fff;
+    text-align: center;
+    max-width: 780px;
+    grid-area: 1/1/1/1;
+    align-self: center;
+    justify-self: center;
+}
+.bigPicTop_text h2{
+    text-transform: uppercase;
+    font-size: 72px;
+    line-height: 1.25em;
+    font-weight: normal;
+}
+.bigPicTop_text p{
+    font-size: 20px;
+}
+
+
+.gridCentral{
+    display: grid;
+    grid-template-columns: 1;
+}
+
+.meetDesigners{
+    margin-top: 120px;
+    display:flex;
+    grid-area: 1/1/1/1;
+    justify-self: center;
+}
+
+.meetDesignImg{
+    max-width: 560px;
+    height:620px;
+    text-align: center;
+}
+
+.meetDesignTextbox{
+    height: 480px;
+    max-width: 460px;
+    background-color: darkorchid;
+    align-self:flex-end;
+    position: relative;
+    right: 4.3em;
+    background-color: white;
+}
+
+.meetDesignTextbox h2{
+    padding-left: 60px;
+    padding-top: 30px;
+    max-width: 220px;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.meetDesignTextbox p{
+    padding: 10px 60px 60px 60px;
+    line-height: 28px;
+    font-size: 15px;
+}
+
+.goldenDesigns{
+    background-color: #777922;
+    height: 400px;
+    color: white;
+    display:flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.goldenDesignLeftText{
+    margin-right: 150px;
+    margin-bottom: .2em;
+    font-size: 82px;
+    line-height: 90px;
+    max-width: 307px;
+    text-transform: uppercase;
+    align-self: flex-end;
+}
+
+
+.goldenDesignsRightText{
+    max-width: 454px;
+    align-self: center;
+}

@@ -1,0 +1,16 @@
+.productCard{
+    max-width: 336px;
+}
+.productImg{
+    max-width: 336px;
+    height: 252px;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+.productInfo{
+    color:#000;
+}
