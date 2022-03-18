@@ -4,6 +4,7 @@ import LoginSite from "./pages/LoginSite";
 import SignUp from "./pages/SignUp";
 import Startside from "./pages/Startside";
 import "./app.css"
+import ProductSide from "./pages/ProductSide";
 
 function App() {
 //auth status
@@ -27,6 +28,7 @@ auth.onAuthStateChanged(user => {
       <SignUp path="/createAccount" />
       <Dashboard path="/dashboard" />
       <LoginSite path="/login" />
+      <ProductSide path="/product/:id" />
     </Router>
   );
 }

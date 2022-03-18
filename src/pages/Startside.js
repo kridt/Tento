@@ -90,11 +90,7 @@ export default function Startside() {
 
   {console.log(productGallary)}
 
-  <Carousel className="productGallary">
-
-    <div>
-      <img alt="placeholder" src="http://via.placeholder.com/336x252" />
-    </div>
+  <div className="productGallary">
 
       {productGallary.map((product) => {
         
@@ -107,7 +103,7 @@ export default function Startside() {
         )
       })}
       
-      </Carousel>
+      </div>
       
 
 

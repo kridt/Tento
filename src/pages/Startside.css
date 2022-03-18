@@ -105,3 +105,15 @@ img{
     max-width: 454px;
     align-self: center;
 }
+
+.productGallary{
+    display:flex;
+    margin-left: 60px;
+    width: 96%;
+    overflow-x:scroll;
+    
+}
+
+.productGallary .productCard{
+    margin-right: 150px;
+} 

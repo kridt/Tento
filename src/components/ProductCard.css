@@ -1,14 +1,13 @@
 .productCard{
-    max-width: 336px;
+    max-width: 536px;
 }
 .productImg{
-    max-width: 336px;
-    height: 252px;
+    width: 436px;
+    height: 322px;
 }
 
 a{
     text-decoration: none;
-
 }
 
 .productInfo{
