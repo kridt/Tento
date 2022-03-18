@@ -1,5 +1,4 @@
 import React from 'react'
-import { Carousel } from 'react-responsive-carousel';
 import NavBar from '../components/NavBar';
 
 export default function ProductSide({ id }) {
@@ -37,7 +36,7 @@ export default function ProductSide({ id }) {
         },
       ]
 
-    console.log(id);
+    console.log(productGallary);
 
   return (
 <>

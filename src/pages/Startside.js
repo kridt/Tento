@@ -1,5 +1,4 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
 import NavBar from '../components/NavBar';
 import ProductCard from '../components/ProductCard';
 import "./Startside.css";
