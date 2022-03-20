@@ -3,16 +3,18 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { auth, db } from '../firebase-config';
+import { getAuth, sendEmailVerification } from "firebase/auth";
 
 export default function UserInfo() {
     const [userInfo, setUserInfo] = useState({})
     const [allUserData, setAllUserData] = useState({})
     const [orders, setOrders] = useState([])
     const [emailVerified, setEmailVerified] = useState(true)
-    
+    const authen = getAuth();
 
+    console.log(authen.currentUser);
 
-    console.log(allUserData, orders, userInfo);
+    /* console.log(allUserData, orders, userInfo); */
     
     useEffect(()=>{
         
@@ -69,13 +71,17 @@ export default function UserInfo() {
         }).then((order) => {
             console.log(order);
         }) */
-        
+          
 
     }
 
     function VerifyUser() {
-        auth.sendSignInLinkToEmail() 
-        console.log("Clicked the verify buton");       
+
+
+        sendEmailVerification(authen.currentUser)
+        .then(()=>{
+            console.log("Email Sendt!");
+        })        
     }
 
 
@@ -89,7 +95,7 @@ return (
             
             <h1>Not verified</h1>
             <button onClick={()=> VerifyUser()}>Verify your profile</button>
-
+            <p>Your:</p>
             </div>}
           
 

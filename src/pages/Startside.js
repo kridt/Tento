@@ -11,7 +11,10 @@ export default function Startside() {
   
   
   
+  
   useEffect(()=>{
+    axios.get("http://api.fakeshop-api.com/products/getAllProducts")
+    .then(response => console.log(response))
 
     axios.get("../dummyProducts.json")
     .then(response => setProductGallary(response.data))
