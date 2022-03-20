@@ -1,51 +1,22 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import ProductCard from '../components/ProductCard';
+import shuffle from '../components/ShuffleArray';
 import "./Startside.css";
 
 
 export default function Startside() {
+  const [productGallary, setProductGallary] = useState([])
   
-  const productGallary = [
+  
+  
+  useEffect(()=>{
 
-    {
-      id: 123,
-      img: "https://via.placeholder.com/336x252",
-      price: 15,
-      productName: "Jeg er en halskæde",
-      productBio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat consequat mauris nunc congue nisi. Et tortor at risus viverra adipiscing at in. Feugiat nisl pretium fusce id. Aliquet bibendum enim facilisis gravida. Praesent tristique magna sit amet purus gravida quis. Id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et. Leo integer malesuada nunc vel risus. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Egestas quis ipsum suspendisse ultrices gravida dictum. Eleifend mi in nulla posuere sollicitudin. Fames ac turpis egestas integer eget aliquet nibh praesent. Leo a diam sollicitudin tempor id eu nisl nunc mi. Velit egestas dui id ornare arcu odio ut sem nulla. Duis convallis convallis tellus id interdum velit. Proin sagittis nisl rhoncus mattis. Eget mauris pharetra et ultrices neque ornare aenean. Nisl condimentum id venenatis a condimentum. Fermentum posuere urna nec tincidunt praesent semper."
-    },
-    {
-      id: 153,
-      img: "https://via.placeholder.com/336x252",
-      price: 36,
-      productName: "Jeg er et armbånd",
-      productBio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat consequat mauris nunc congue nisi. Et tortor at risus viverra adipiscing at in. Feugiat nisl pretium fusce id. Aliquet bibendum enim facilisis gravida. Praesent tristique magna sit amet purus gravida quis. Id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et. Leo integer malesuada nunc vel risus. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Egestas quis ipsum suspendisse ultrices gravida dictum. Eleifend mi in nulla posuere sollicitudin. Fames ac turpis egestas integer eget aliquet nibh praesent. Leo a diam sollicitudin tempor id eu nisl nunc mi. Velit egestas dui id ornare arcu odio ut sem nulla. Duis convallis convallis tellus id interdum velit. Proin sagittis nisl rhoncus mattis. Eget mauris pharetra et ultrices neque ornare aenean. Nisl condimentum id venenatis a condimentum. Fermentum posuere urna nec tincidunt praesent semper."
-    },
-    {
-      id: 126,
-      img: "https://via.placeholder.com/336x252",
-      price: 20,
-      productName: "Jeg er en hat",
-      productBio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat consequat mauris nunc congue nisi. Et tortor at risus viverra adipiscing at in. Feugiat nisl pretium fusce id. Aliquet bibendum enim facilisis gravida. Praesent tristique magna sit amet purus gravida quis. Id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et. Leo integer malesuada nunc vel risus. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Egestas quis ipsum suspendisse ultrices gravida dictum. Eleifend mi in nulla posuere sollicitudin. Fames ac turpis egestas integer eget aliquet nibh praesent. Leo a diam sollicitudin tempor id eu nisl nunc mi. Velit egestas dui id ornare arcu odio ut sem nulla. Duis convallis convallis tellus id interdum velit. Proin sagittis nisl rhoncus mattis. Eget mauris pharetra et ultrices neque ornare aenean. Nisl condimentum id venenatis a condimentum. Fermentum posuere urna nec tincidunt praesent semper."
-    },
-    {
-      id: 119,
-      img: "https://via.placeholder.com/336x252",
-      price: 55,
-      productName: "Jeg er en sok",
-      productBio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat consequat mauris nunc congue nisi. Et tortor at risus viverra adipiscing at in. Feugiat nisl pretium fusce id. Aliquet bibendum enim facilisis gravida. Praesent tristique magna sit amet purus gravida quis. Id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et. Leo integer malesuada nunc vel risus. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Egestas quis ipsum suspendisse ultrices gravida dictum. Eleifend mi in nulla posuere sollicitudin. Fames ac turpis egestas integer eget aliquet nibh praesent. Leo a diam sollicitudin tempor id eu nisl nunc mi. Velit egestas dui id ornare arcu odio ut sem nulla. Duis convallis convallis tellus id interdum velit. Proin sagittis nisl rhoncus mattis. Eget mauris pharetra et ultrices neque ornare aenean. Nisl condimentum id venenatis a condimentum. Fermentum posuere urna nec tincidunt praesent semper."
-    },
-    {
-      id: 159,
-      img: "https://via.placeholder.com/336x252",
-      price: 15,
-      productName: "Jeg er en ring",
-      productBio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat consequat mauris nunc congue nisi. Et tortor at risus viverra adipiscing at in. Feugiat nisl pretium fusce id. Aliquet bibendum enim facilisis gravida. Praesent tristique magna sit amet purus gravida quis. Id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et. Leo integer malesuada nunc vel risus. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Egestas quis ipsum suspendisse ultrices gravida dictum. Eleifend mi in nulla posuere sollicitudin. Fames ac turpis egestas integer eget aliquet nibh praesent. Leo a diam sollicitudin tempor id eu nisl nunc mi. Velit egestas dui id ornare arcu odio ut sem nulla. Duis convallis convallis tellus id interdum velit. Proin sagittis nisl rhoncus mattis. Eget mauris pharetra et ultrices neque ornare aenean. Nisl condimentum id venenatis a condimentum. Fermentum posuere urna nec tincidunt praesent semper."
-    },
-  ]
-  
-  
+    axios.get("../dummyProducts.json")
+    .then(response => setProductGallary(response.data))
+
+  }, [setProductGallary])
   
   return (
     <>
@@ -93,10 +64,10 @@ export default function Startside() {
 
     </div>
 
-  {console.log(productGallary)}
+  
 
   <div className="productGallary">
-      {productGallary.map((product) => {
+      {shuffle(productGallary).map((product) => {
         return (
         <ProductCard key={product.id} img={product.img} name={product.productName} price={product.price} id={product.id} />
         )
@@ -122,7 +93,7 @@ export default function Startside() {
       </div>
 
       <div className="productGallary">
-      {productGallary.map((product) => {
+      {shuffle(productGallary).map((product) => {
         return (
         <ProductCard key={product.id} img={product.img} name={product.productName} price={product.price} id={product.id} />
         )
@@ -142,7 +113,7 @@ export default function Startside() {
     </div>
 
     <div className="productGallary">
-      {productGallary.map((product) => {
+      {shuffle(productGallary).map((product) => {
         return (
         <ProductCard key={product.id} img={product.img} name={product.productName} price={product.price} id={product.id} />
         )
