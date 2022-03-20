@@ -90,6 +90,16 @@ img{
     margin-top: 120px;
 }
 
+.giftsForHer{
+    background-color: #fff;
+    height: 400px;
+    color: white;
+    display:flex;
+    justify-content: center;
+    margin-top: 120px;
+    color: #000;
+}
+
 .goldenDesignLeftText{
     margin-right: 150px;
     margin-bottom: .2em;
@@ -111,7 +121,7 @@ img{
     margin-left: 60px;
     width: 96%;
     overflow-x:scroll;
-    
+    margin-top: 3em;
 }
 
 .productGallary .productCard{

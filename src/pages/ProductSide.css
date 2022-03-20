@@ -1,0 +1,33 @@
+.productSite{
+    display:flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.productSiteGallery{
+    margin-right: 5em;
+    max-width: 500px;
+}   
+
+/* .productSiteInfo{
+    
+} */
+
+.productSiteInfo .productName{
+    font-size: 2em;
+    margin: 0;
+}
+
+.productSiteInfo .productPrice{
+    font-size: 1.5em;
+}
+
+.addToCartBut{
+    width: 100%;
+    color: #fff;
+    background-color: #777922;
+    border: none;
+    height: 40px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
