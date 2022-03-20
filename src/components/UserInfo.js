@@ -12,7 +12,7 @@ export default function UserInfo() {
     
 
 
-    console.log(allUserData);
+    console.log(allUserData, orders, userInfo);
     
     useEffect(()=>{
         
