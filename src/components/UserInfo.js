@@ -8,14 +8,24 @@ export default function UserInfo() {
     const [userInfo, setUserInfo] = useState({})
     const [allUserData, setAllUserData] = useState({})
     const [orders, setOrders] = useState([])
+    const [emailVerified, setEmailVerified] = useState(true)
     
-    console.log(userInfo, allUserData, orders);
+
+
+    console.log(allUserData);
     
     useEffect(()=>{
         
         auth.onAuthStateChanged(user => {
             setAllUserData(user)
             
+            if(user.emailVerified === true) {
+                setEmailVerified(true)
+            } else{
+                setEmailVerified(false)
+                return
+            }
+
             if(user){
                 db.collection("users").doc(user.uid).get().then(doc => {
                     setUserInfo(doc.data());
@@ -28,6 +38,7 @@ export default function UserInfo() {
         })
         
     }, [setUserInfo, setAllUserData]);
+    
     
     
     useEffect(()=>{
@@ -62,10 +73,26 @@ export default function UserInfo() {
 
     }
 
+    function VerifyUser() {
+        auth.sendSignInLinkToEmail() 
+        console.log("Clicked the verify buton");       
+    }
+
+
 return (
     <div>
+            
         <h1>User Info</h1>   
         
+
+        {emailVerified ? null : <div>
+            
+            <h1>Not verified</h1>
+            <button onClick={()=> VerifyUser()}>Verify your profile</button>
+
+            </div>}
+          
+
         <div>
             <h2>Antal ordre:0</h2>
         </div>
