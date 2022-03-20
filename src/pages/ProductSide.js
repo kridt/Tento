@@ -54,7 +54,7 @@ export default function ProductSide({ id }) {
     
     setCurrentProduct(test);
 
-  }, [setCurrentProduct])
+  }, [setCurrentProduct, id, productGallary])
 
     
 
