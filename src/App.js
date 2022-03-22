@@ -3,14 +3,13 @@ import Dashboard from "./pages/Dashboard";
 import LoginSite from "./pages/LoginSite";
 import SignUp from "./pages/SignUp";
 import Startside from "./pages/Startside";
-import "./app.css"
+import "./app.css";
 import ProductSide from "./pages/ProductSide";
 
 function App() {
-//auth status
+  //auth status
 
-
-/* 
+  /* 
 auth.onAuthStateChanged(user => {
   
    if(user){
@@ -20,7 +19,6 @@ auth.onAuthStateChanged(user => {
   } 
 })
  */
-
 
   return (
     <Router className="App">

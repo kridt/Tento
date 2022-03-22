@@ -1,48 +1,88 @@
-import { Link } from '@reach/router'
-import React, { useState } from 'react'
-import { auth } from '../firebase-config'
-import "./NavBar.css"
+import { Link } from "@reach/router";
+import React, { useState } from "react";
+import { auth } from "../firebase-config";
+import "./NavBar.css";
 
 export default function NavBar() {
-    const [userState, setUserState] = useState(false)
+  const [userState, setUserState] = useState(false);
 
-    auth.onAuthStateChanged(user => {
-  
-        if(user){
-          setUserState(true)
-        } else {
-            setUserState(false)
-          return;
-        }
-      })
+  console.log(userState);
+  function titleChange() {
+    const currentPage = document.location.pathname;
 
-     function signOut() {
-      auth.signOut().then(() =>{
-        console.log("User has been signed out");
-    })
-     }
+    if (currentPage.split("/")[1] === "") {
+      document.title = "Tentii";
+    } else {
+      document.title = `Tentii | ${currentPage.split("/")[1]}`;
+    }
+  }
 
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      setUserState(true);
+    } else {
+      setUserState(false);
+      return;
+    }
+  });
 
-     
+  /* function signOut() {
+    auth.signOut().then(() => {
+      console.log("User has been signed out");
+    });
+  } */
 
   return (
-    <nav id='navbar'>
+    <nav onClick={() => titleChange()} id="navbar">
       <ul>
         <li>
-          <Link id='logo' to={`/`}>Tento</Link>
+          <Link id="logo" to={`/`}>
+            Tentii
+          </Link>
         </li>
       </ul>
-        <ul>
-            <li><Link to='/'>Alle smykker</Link></li>
-            <li>{userState ? 
+      {/* <ul>
+        <div className="navUser">
+          <i class="fa-regular fa-user"></i>
+
+          <div className="userDropDown">
+            <Link to="/dashboard">
+              
+            </Link>
+          </div>
+        </div>
+        <li>
+          {userState ? (
             <>
-            <Link onClick={() => signOut()} to='/'>Log Out</Link>
-            <Link to="/dashboard">Dashboard</Link> 
+              <Link onClick={() => signOut()} to="/">
+                Log Out
+              </Link>
+              <Link to="/dashboard">Dashboard</Link>
             </>
-            : 
-            <Link to="/login">Log in</Link>}</li>
-            
-        </ul>
+          ) : (
+            <Link to="/login">Log in</Link>
+          )}
+        </li>
+      </ul> */}
+
+      <ul>
+        <li className="navProfile">
+          <Link className="linket" to="/">
+            Profile
+          </Link>
+          <ul className="profileDropDown">
+            <Link to="/dashboard">Din side</Link>
+            <Link to="/">Dine ordre</Link>
+            <Link to="/">Hjælp og Kontakt</Link>
+          </ul>
+        </li>
+        <li>
+          <Link to="/">Wishlist</Link>
+        </li>
+        <li>
+          <Link to="/">Kurv</Link>
+        </li>
+      </ul>
     </nav>
-  )
+  );
 }
