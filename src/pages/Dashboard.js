@@ -5,7 +5,6 @@ import MineOrdrer from "../components/MineOrdrer";
 import MinInfo from "../components/MinInfo";
 import MinStartside from "../components/MinStartside";
 import NavBar from "../components/NavBar";
-import UserInfo from "../components/UserInfo";
 import "./Dashboard.css";
 
 export default function Dashboard() {
