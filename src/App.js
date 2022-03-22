@@ -24,7 +24,7 @@ auth.onAuthStateChanged(user => {
     <Router className="App">
       <Startside path="/" />
       <SignUp path="/createAccount" />
-      <Dashboard path="/dashboard" />
+      <Dashboard path="/dashboard/*" />
       <LoginSite path="/login" />
       <ProductSide path="/product/:id" />
     </Router>

@@ -68,7 +68,7 @@ export default function NavBar() {
       <ul>
         <li className="navProfile">
           <Link className="linket" to="/">
-            Profile
+            <i class="fa-regular fa-user"></i>
           </Link>
           <ul className="profileDropDown">
             <Link to="/dashboard">Din side</Link>
@@ -77,10 +77,15 @@ export default function NavBar() {
           </ul>
         </li>
         <li>
-          <Link to="/">Wishlist</Link>
+          <Link to="/">
+            <i className="fa-regular fa-heart"></i>
+          </Link>
         </li>
-        <li>
-          <Link to="/">Kurv</Link>
+        <li className="navCart">
+          <Link to="/">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <ul className="currentCart"></ul>
+          </Link>
         </li>
       </ul>
     </nav>

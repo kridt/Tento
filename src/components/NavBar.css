@@ -23,7 +23,10 @@ li a {
 
 ul {
   display: flex;
-  align-self: center;
+}
+
+ul li a {
+  align-items: center;
 }
 
 nav ul .navProfile ul {
@@ -37,6 +40,11 @@ nav ul .navProfile ul {
 nav ul .navProfile ul a {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+nav ul li a {
+  font-size: 3em;
 }
 
 nav ul .navProfile ul a:hover {
@@ -47,5 +55,5 @@ nav ul .navProfile:hover ul {
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 200px;
+  right: 150px;
 }
