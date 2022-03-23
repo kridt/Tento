@@ -1,56 +1,53 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import NavBar from '../components/NavBar';
-import "./ProductSide.css"
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+import { ProductContext } from "../context/CartContext";
+import "./ProductSide.css";
 
 export default function ProductSide({ id }) {
-  const [currentProduct, setCurrentProduct] = useState({})
-  
+  const [currentProduct, setCurrentProduct] = useState({});
+  const { value, setValue } = useContext(ProductContext);
 
+  function addToCartFunction(productId) {
+    productId.preventDefault();
 
-  
-  useEffect(()=>{
-    axios.get("../dummyProducts.json")
-    .then(response=> response.data)
-    .then((products)=>{
+    setValue((value) => [...value, currentProduct]);
 
-      console.log(products);
-      const product = products?.find((product) => product.id === parseInt(id))
-      
-      setCurrentProduct(product);
-    })
-    
-  
-  
-    
+    console.log(currentProduct);
+  }
 
-  }, [setCurrentProduct, id])
+  useEffect(() => {
+    axios
+      .get("../dummyProducts.json")
+      .then((response) => response.data)
+      .then((products) => {
+        console.log(products);
+        const product = products?.find(
+          (product) => product.id === parseInt(id)
+        );
 
-    
+        setCurrentProduct(product);
+      });
+  }, [setCurrentProduct, id]);
 
   return (
-<>
-<NavBar />
+    <>
+      <NavBar />
 
+      <div className="productSite">
+        <div className="productSiteGallery">
+          <img alt="placeholder" src={currentProduct.img} />
+          <p>{currentProduct.productBio}</p>
+        </div>
 
-     <div className="productSite">
-
-      <div className="productSiteGallery">
-        <img alt="placeholder" src={currentProduct.img} />
-        <p>{currentProduct.productBio}</p>
+        <div className="productSiteInfo">
+          <form className="productForm" onSubmit={(e) => addToCartFunction(e)}>
+            <label htmlFor="productName">{currentProduct.productName}</label>
+            <label>{currentProduct.price}</label>
+            <input type="submit" value={"Tilføj til kurv"} />
+          </form>
+        </div>
       </div>
-
-
-      <div className="productSiteInfo">
-          <p className="productName">{currentProduct.productName}</p>
-          <p className="productPrice">{currentProduct.price} kr</p>
-
-          <button className="addToCartBut">Tilføj til kurv</button>
-
-      </div>
-    </div>
-  
-</>
-  
-    )
+    </>
+  );
 }

@@ -1,12 +1,14 @@
 import { Link } from "@reach/router";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ProductContext } from "../context/CartContext";
 import { auth } from "../firebase-config";
 import "./NavBar.css";
 
 export default function NavBar() {
-  const [userState, setUserState] = useState(false);
+  /* const [userState, setUserState] = useState(false); */
+  const { value, setValue } = useContext(ProductContext);
 
-  console.log(userState);
+  console.log(value);
   function titleChange() {
     const currentPage = document.location.pathname;
 
@@ -17,14 +19,14 @@ export default function NavBar() {
     }
   }
 
-  auth.onAuthStateChanged((user) => {
+  /* auth.onAuthStateChanged((user) => {
     if (user) {
       setUserState(true);
     } else {
       setUserState(false);
       return;
     }
-  });
+  }); */
 
   /* function signOut() {
     auth.signOut().then(() => {
@@ -68,7 +70,7 @@ export default function NavBar() {
       <ul>
         <li className="navProfile">
           <Link className="linket" to="/">
-            <i class="fa-regular fa-user"></i>
+            <i className="fa-regular fa-user"></i>
           </Link>
           <ul className="profileDropDown">
             <Link to="/dashboard">Din side</Link>
@@ -83,8 +85,36 @@ export default function NavBar() {
         </li>
         <li className="navCart">
           <Link to="/">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <ul className="currentCart"></ul>
+            <i className="fa-solid fa-bag-shopping"></i>
+            <p>{value.length}</p>
+            <ul className="currentCart">
+              {value.map((product) => {
+                console.log(product);
+
+                return (
+                  <>
+                    <div className="productCartElement">
+                      <Link to={"/product/" + product.id}>
+                        {product.productName}{" "}
+                      </Link>
+
+                      <p>{product.price} kr</p>
+                    </div>
+                  </>
+                );
+              })}
+              <br />
+              <div className="productCartElement">
+                <p>Total:</p>
+                <p>
+                  {" "}
+                  {value.reduce((currentTotal, product) => {
+                    return product.price + currentTotal;
+                  }, 0)}{" "}
+                  kr
+                </p>
+              </div>
+            </ul>
           </Link>
         </li>
       </ul>

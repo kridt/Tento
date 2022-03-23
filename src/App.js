@@ -5,8 +5,13 @@ import SignUp from "./pages/SignUp";
 import Startside from "./pages/Startside";
 import "./app.css";
 import ProductSide from "./pages/ProductSide";
+import { ProductContext } from "./context/CartContext";
+import { useState } from "react";
+import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
+  const [value, setValue] = useState([]);
+
   //auth status
 
   /* 
@@ -21,13 +26,16 @@ auth.onAuthStateChanged(user => {
  */
 
   return (
-    <Router className="App">
-      <Startside path="/" />
-      <SignUp path="/createAccount" />
-      <Dashboard path="/dashboard/*" />
-      <LoginSite path="/login" />
-      <ProductSide path="/product/:id" />
-    </Router>
+    <ProductContext.Provider value={{ value, setValue }}>
+      <Router className="App">
+        <Startside path="/" />
+        <SignUp path="/createAccount" />
+        <Dashboard path="/dashboard/*" />
+        <LoginSite path="/login" />
+        <ProductSide path="/product/:id" />
+        <ShoppingCart path="/shoppingCart" />
+      </Router>
+    </ProductContext.Provider>
   );
 }
 

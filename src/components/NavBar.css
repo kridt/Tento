@@ -57,3 +57,51 @@ nav ul .navProfile:hover ul {
   position: absolute;
   right: 150px;
 }
+
+nav ul .navCart:hover ul {
+  font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 1.5em;
+  top: 4.1em;
+  padding: 0.5em;
+  background-color: white;
+}
+
+.currentCart {
+  display: none;
+  /* font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 1.5em;
+  top: 4.1em;
+  padding: 0.5em;
+  background-color: white; */
+}
+nav ul .navCart:hover ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+/* .currentCart {
+  background-color: aqua;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+} */
+
+.productCartElement {
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+}
+
+.productCartElement a:hover {
+  text-decoration: underline;
+}
+
+.productCartElement a {
+  font-size: 1em;
+}
