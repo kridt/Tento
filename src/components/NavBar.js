@@ -6,7 +6,6 @@ import "./NavBar.css";
 export default function NavBar() {
   const [userState, setUserState] = useState(false);
 
-  console.log(userState);
   function titleChange() {
     const currentPage = document.location.pathname;
 
@@ -68,7 +67,7 @@ export default function NavBar() {
       <ul>
         <li className="navProfile">
           <Link className="linket" to="/">
-            <i class="fa-regular fa-user"></i>
+            <i className="fa-regular fa-user"></i>
           </Link>
           <ul className="profileDropDown">
             <Link to="/dashboard">Din side</Link>
@@ -83,7 +82,7 @@ export default function NavBar() {
         </li>
         <li className="navCart">
           <Link to="/">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i className="fa-solid fa-bag-shopping"></i>
             <ul className="currentCart"></ul>
           </Link>
         </li>
